@@ -244,12 +244,85 @@
     });
   });
 
-  // ==================== AUDIO SYNTHESIS & LIVE WAVEFORM ====================
+  // ==================== AUDIO MP3 & SPEECH SYNTHESIS ENGINE ====================
   const waveformBars = document.getElementById("audio-waveform");
+  let currentAudioObj = null;
 
-  function speakArabic(text, rate = 0.9, onEnd = null) {
+  function stopAudio() {
+    if (currentAudioObj) {
+      currentAudioObj.pause();
+      currentAudioObj.currentTime = 0;
+      currentAudioObj = null;
+    }
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+    isPlayingAudio = false;
+    fulltextPlaying = false;
+    shadowingActive = false;
+    waveformBars.classList.remove("playing");
+    updatePlayButtonState(false);
+    const hfBtn = document.getElementById("btn-handsfree-toggle");
+    if (hfBtn) hfBtn.textContent = "▶ Lancer";
+  }
+
+  function playArabicDayAudio(dayNum, isSing, rate = 0.9, onEnd = null) {
+    stopAudio();
+    isPlayingAudio = true;
+    waveformBars.classList.add("playing");
+
+    const mode = isSing ? "sing" : "plur";
+    const src = `audio/day_${dayNum}_${mode}.mp3`;
+
+    currentAudioObj = new Audio(src);
+    currentAudioObj.playbackRate = rate;
+
+    currentAudioObj.onended = () => {
+      isPlayingAudio = false;
+      waveformBars.classList.remove("playing");
+      currentAudioObj = null;
+      if (onEnd) onEnd();
+    };
+
+    currentAudioObj.onerror = () => {
+      console.warn("Local mp3 error, attempting online TTS stream");
+      const cur = getDayData(dayNum);
+      const text = isSing ? cur.ar_sing : cur.ar_plur;
+      const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ar&client=tw-ob&q=${encodeURIComponent(text)}`;
+      currentAudioObj = new Audio(url);
+      currentAudioObj.playbackRate = rate;
+      currentAudioObj.onended = () => {
+        isPlayingAudio = false;
+        waveformBars.classList.remove("playing");
+        currentAudioObj = null;
+        if (onEnd) onEnd();
+      };
+      currentAudioObj.onerror = () => {
+        speakArabicFallback(text, rate, onEnd);
+      };
+      currentAudioObj.play().catch(() => speakArabicFallback(text, rate, onEnd));
+    };
+
+    currentAudioObj.play().catch(e => {
+      console.warn("Audio play blocked or error:", e);
+      const cur = getDayData(dayNum);
+      const text = isSing ? cur.ar_sing : cur.ar_plur;
+      speakArabicFallback(text, rate, onEnd);
+    });
+  }
+
+  function playVocabAudio(word) {
+    stopAudio();
+    const clean = word.replace(/[،.*]/g, "").trim();
+    const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ar&client=tw-ob&q=${encodeURIComponent(clean)}`;
+    const a = new Audio(url);
+    a.play().catch(() => speakArabicFallback(clean, 0.85));
+  }
+
+  function speakArabicFallback(text, rate = 0.9, onEnd = null) {
     if (!("speechSynthesis" in window)) {
-      alert("Synthèse vocale indisponible");
+      isPlayingAudio = false;
+      waveformBars.classList.remove("playing");
       if (onEnd) onEnd();
       return;
     }
@@ -277,18 +350,6 @@
     };
 
     window.speechSynthesis.speak(utter);
-  }
-
-  function stopAudio() {
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
-    isPlayingAudio = false;
-    fulltextPlaying = false;
-    shadowingActive = false;
-    waveformBars.classList.remove("playing");
-    updatePlayButtonState(false);
-    document.getElementById("btn-handsfree-toggle").textContent = "▶ Lancer";
   }
 
   if ("speechSynthesis" in window) {
@@ -353,7 +414,7 @@
       `;
       card.addEventListener("click", () => {
         const wordToPlay = v.ar.split("/")[isSing ? 0 : (v.ar.includes("/") ? 1 : 0)].trim();
-        speakArabic(wordToPlay, 0.85);
+        playVocabAudio(wordToPlay);
       });
       vocabGrid.appendChild(card);
     });
@@ -401,11 +462,10 @@
     if (isPlayingAudio) {
       stopAudio();
     } else {
-      const cur = getDayData(state.currentDay);
-      const text = state.grammMode === "sing" ? cur.ar_sing : cur.ar_plur;
+      const isSing = state.grammMode === "sing";
       const rate = parseFloat(speedSelect.value) || 0.9;
       updatePlayButtonState(true);
-      speakArabic(text, rate, () => {
+      playArabicDayAudio(state.currentDay, isSing, rate, () => {
         updatePlayButtonState(false);
       });
     }
@@ -413,8 +473,7 @@
 
   btnRepeatAudio.addEventListener("click", () => {
     stopAudio();
-    const cur = getDayData(state.currentDay);
-    const text = state.grammMode === "sing" ? cur.ar_sing : cur.ar_plur;
+    const isSing = state.grammMode === "sing";
     const rate = parseFloat(speedSelect.value) || 0.9;
     let count = 0;
 
@@ -425,7 +484,7 @@
       }
       count++;
       updatePlayButtonState(true);
-      speakArabic(text, rate, () => {
+      playArabicDayAudio(state.currentDay, isSing, rate, () => {
         setTimeout(loopOnce, 600);
       });
     }
@@ -444,13 +503,12 @@
 
     shadowingActive = true;
     btnHandsfree.textContent = "⏸ Arrêter";
-    const cur = getDayData(state.currentDay);
-    const text = state.grammMode === "sing" ? cur.ar_sing : cur.ar_plur;
+    const isSing = state.grammMode === "sing";
 
     // Phase 1: Slow listen
     hfStatusText.textContent = "🎧 Écoutez attentivement (0.75x)...";
     updatePlayButtonState(true);
-    speakArabic(text, 0.75, () => {
+    playArabicDayAudio(state.currentDay, isSing, 0.75, () => {
       if (!shadowingActive) return;
       playChime(true);
       hfStatusText.textContent = "🗣️ À vous de réciter à voix haute ! (Pause 4s)";
@@ -458,9 +516,9 @@
 
       setTimeout(() => {
         if (!shadowingActive) return;
-        hfStatusText.textContent = "🎧 Réécoute à vitesse normale (0.95x)...";
+        hfStatusText.textContent = "🎧 Réécoute à vitesse normale (1.0x)...";
         updatePlayButtonState(true);
-        speakArabic(text, 0.95, () => {
+        playArabicDayAudio(state.currentDay, isSing, 1.0, () => {
           if (!shadowingActive) return;
           playChime(true);
           hfStatusText.textContent = "✓ Récitation terminée ! Prêt pour le vocabulaire.";
@@ -776,15 +834,14 @@
       studioBtnPlayLabel.textContent = "Écouter";
       studioBtnPlay.classList.remove("playing");
     } else {
-      const cur = getDayData(state.currentDay);
-      const text = state.grammMode === "sing" ? cur.ar_sing : cur.ar_plur;
+      const isSing = state.grammMode === "sing";
       studioBtnPlayLabel.textContent = "Arrêter";
       studioBtnPlay.classList.add("playing");
 
       function playLoop() {
-        speakArabic(text, 0.9, () => {
+        playArabicDayAudio(state.currentDay, isSing, 0.9, () => {
           if (studioIsLooping && currentView === "studio") {
-            setTimeout(playLoop, 800);
+            setTimeout(playLoop, 700);
           } else {
             studioBtnPlayLabel.textContent = "Écouter";
             studioBtnPlay.classList.remove("playing");
@@ -947,7 +1004,7 @@
       activeRow.scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
-    speakArabic(text, 0.9, () => {
+    playArabicDayAudio(cur.day, isSing, 0.9, () => {
       if (fulltextPlaying) {
         fulltextAudioIndex++;
         setTimeout(playNextFulltextSentence, 500);
