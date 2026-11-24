@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Dou'a Khatm al-Qur'an 30 — Maîtriser l'invocation en 30 jours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Scheherazade+New:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="celebration-canvas"></canvas>
+
+  <!-- Slide-Over Drawer for 30 Days -->
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+  <aside id="blocks-drawer" class="blocks-drawer" aria-label="Liste des 30 jours d'apprentissage">
+    <div class="drawer-header">
+      <div>
+        <h2>Programme 30 Jours</h2>
+        <p class="caption">30 étapes · Dou'a complète de clôture du Coran</p>
+      </div>
+      <button id="btn-close-drawer" class="icon-btn" aria-label="Fermer le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="drawer-search-area">
+      <div class="search-input-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="block-search" placeholder="Rechercher un mot, un verset, une notion..." />
+      </div>
+      <div class="segmented-small">
+        <button class="filter-pill active" data-filter="all">Tous (30)</button>
+        <button class="filter-pill" data-filter="todo">À apprendre</button>
+        <button class="filter-pill" data-filter="done">Maîtrisés</button>
+      </div>
+    </div>
+
+    <div id="drawer-days-list" class="drawer-list"></div>
+  </aside>
+
+  <!-- Floating Modern Topbar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button id="btn-open-drawer" class="drawer-trigger" title="Ouvrir le sommaire des 30 jours">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <span id="drawer-trigger-label">Jour 01 / 30</span>
+      </button>
+      <div class="brand-divider"></div>
+      <div class="brand-wrap">
+        <span class="brand-name">Khatm Flow</span>
+        <span class="brand-arabic">دُعَاءُ الخَتْمِ</span>
+      </div>
+    </div>
+
+    <nav class="segmented-nav" role="tablist">
+      <button class="nav-pill active" data-view="parcours">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>Parcours</span>
+      </button>
+      <button class="nav-pill" data-view="studio">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        <span>Studio Audio</span>
+      </button>
+      <button class="nav-pill" data-view="flashcards">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M8 10h8M8 14h5"/></svg>
+        <span>Flashcards</span>
+      </button>
+      <button class="nav-pill" data-view="plan">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Plan 30J</span>
+      </button>
+      <button class="nav-pill" data-view="fulltext">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5 A2.5 2.5 0 0 1 6.5 17 L20 17"/><path d="M6.5 2 L20 2 L20 22 L6.5 22 A2.5 2.5 0 0 1 4 19.5 L4 4.5 A2.5 2.5 0 0 1 6.5 2 z"/></svg>
+        <span>Texte Complet</span>
+      </button>
+    </nav>
+
+    <div class="topbar-right">
+      <!-- 1-Click Toggle Singulier / Pluriel -->
+      <button id="btn-toggle-gramm-mode" class="mode-switch-btn" title="Basculer entre Singulier (Prière seul) et Pluriel (En groupe)">
+        <span id="gramm-mode-icon">👤</span>
+        <span id="gramm-mode-text">Seul (Singulier)</span>
+      </button>
+
+      <!-- Toggle Langue FR / EN -->
+      <button id="btn-toggle-lang" class="icon-btn" title="Changer l'affichage des explications (FR / EN / Bilingue)">
+        <span id="lang-indicator" style="font-size: 0.78rem; font-weight: 800;">FR</span>
+      </button>
+
+      <div class="metric-chip" title="Jours consécutifs d'étude">
+        <span class="dot-amber"></span>
+        <span id="stat-streak">1</span>j
+      </div>
+      <div class="metric-chip" title="Points d'expérience">
+        <span id="stat-xp">0</span> XP
+      </div>
+      <div class="metric-chip metric-success" title="Jours maîtrisés sur 30">
+        <span id="stat-progress-count">0/30</span>
+      </div>
+      <button id="btn-theme-toggle" class="icon-btn" title="Changer de thème (Clair / Sombre)">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Progress Hairline -->
+  <div class="progress-hairline">
+    <div id="global-progress-fill" class="progress-hairline-fill" style="width: 0%"></div>
+  </div>
+
+  <!-- ==================== VIEW 1: PARCOURS (JOUR PAR JOUR AVEC STEPPER) ==================== -->
+  <main id="view-parcours" class="view active">
+    <div class="focus-shell">
+      
+      <!-- Top Day Title & Header -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+        <div>
+          <span id="day-badge" class="metric-chip metric-success" style="font-size: 0.75rem; font-weight: 800;">Jour 1 sur 30</span>
+          <span id="category-badge" class="metric-chip" style="margin-left: 0.4rem; font-size: 0.75rem;">Miséricorde & Guidance</span>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button id="btn-font-smaller" class="icon-btn" style="width: 32px; height: 32px; font-weight: 800;" title="Diminuer police">A-</button>
+          <button id="btn-font-bigger" class="icon-btn" style="width: 32px; height: 32px; font-weight: 800;" title="Agrandir police">A+</button>
+        </div>
+      </div>
+
+      <h1 id="day-title" style="font-size: 1.75rem; font-weight: 800; margin-bottom: 1.5rem; letter-spacing: -0.02em;">La Miséricorde par le Coran</h1>
+
+      <!-- 4-Step Interactive Stepper -->
+      <div class="stepper-wrap" role="tablist">
+        <button class="step-item active" data-step="1">
+          <span class="step-num">1</span>
+          <span class="step-label">Écouter &amp; Réciter</span>
+        </button>
+        <div class="step-connector"></div>
+        <button class="step-item" data-step="2">
+          <span class="step-num">2</span>
+          <span class="step-label">Vocabulaire &amp; Sagesse</span>
+        </button>
+        <div class="step-connector"></div>
+        <button class="step-item" data-step="3">
+          <span class="step-num">3</span>
+          <span class="step-label">Quiz de Mémoire</span>
+        </button>
+        <div class="step-connector"></div>
+        <button class="step-item" data-step="4">
+          <span class="step-num">4</span>
+          <span class="step-label">Micro &amp; Valider</span>
+        </button>
+      </div>
+
+      <!-- ==================== STEP 1: LISTEN & READ ==================== -->
+      <section id="step-panel-1" class="step-panel active">
+        <!-- Luxury Mushaf Prayer Card -->
+        <div class="mushaf-card">
+          <div class="mushaf-inner">
+            <div class="mushaf-topbar">
+              <span id="current-gramm-label" class="metric-chip" style="border-color: var(--gold-border); color: var(--gold); font-size: 0.75rem;">
+                Mode Singulier (Pour soi)
+              </span>
+              <span class="mushaf-ornament-center">✦ دُعَاءُ الخَتْمِ ✦</span>
+              <div style="display: flex; gap: 0.4rem;">
+                <button id="btn-blur-ar" class="icon-btn" style="width: 30px; height: 30px; font-size: 0.7rem; font-weight: 700;" title="Masquer l'arabe">ع</button>
+                <button id="btn-blur-phon" class="icon-btn" style="width: 30px; height: 30px; font-size: 0.7rem; font-weight: 700;" title="Masquer phonétique">Ph</button>
+                <button id="btn-blur-tr" class="icon-btn" style="width: 30px; height: 30px; font-size: 0.7rem; font-weight: 700;" title="Masquer traduction">Tr</button>
+              </div>
+            </div>
+
+            <!-- Big Calligraphic Arabic Text -->
+            <div class="arabic-box">
+              <p id="prayer-arabic" class="arabic-text">اللَّهُمَّ ارْحَمْنِي بِالقُرْآنِ</p>
+            </div>
+
+            <!-- Audio Waveform Live Visualizer -->
+            <div id="audio-waveform" class="waveform-bars">
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+            </div>
+
+            <!-- Audio Console -->
+            <div class="audio-player-strip">
+              <button id="btn-play-audio" class="btn-play-hero" title="Écouter la récitation">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span id="btn-play-label">Écouter</span>
+              </button>
+              <select id="audio-speed-select" class="speed-select" title="Vitesse de lecture">
+                <option value="0.75">0.75× (Lent / Débutant)</option>
+                <option value="0.9" selected>0.9× (Idéal Tajweed)</option>
+                <option value="1.0">1.0× (Normal)</option>
+              </select>
+              <button id="btn-repeat-audio" class="drawer-trigger" style="padding: 0.45rem 0.85rem;" title="Répéter 3 fois d'affilée">
+                🔁 3×
+              </button>
+            </div>
+
+            <!-- Hands-Free Shadowing Coach Bar -->
+            <div class="handsfree-bar">
+              <div class="hf-info">
+                <strong>🎧 Shadowing Mains-Libres</strong>
+                <span id="hf-status-text">Écoute guidée : récitation lente → pause pour répéter à voix haute → validation.</span>
+              </div>
+              <button id="btn-handsfree-toggle" class="btn-emerald">▶ Lancer</button>
+            </div>
+
+            <!-- Phonetics & Translations -->
+            <div class="translation-stack">
+              <div class="field-block">
+                <div class="field-header">
+                  <span class="field-label">Phonétique Française</span>
+                  <button class="copy-btn icon-btn" style="width: 26px; height: 26px;" data-target="prayer-phonetic" title="Copier">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+                <p id="prayer-phonetic" class="field-content field-phonetic">Allāhumma-rhamnī bil-Qur'ān</p>
+              </div>
+
+              <div id="fr-field-block" class="field-block">
+                <div class="field-header">
+                  <span class="field-label">Traduction Française</span>
+                  <button class="copy-btn icon-btn" style="width: 26px; height: 26px;" data-target="prayer-fr" title="Copier">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+                <p id="prayer-fr" class="field-content">Ô Allah, fais-moi miséricorde par le Coran</p>
+              </div>
+
+              <div id="en-field-block" class="field-block">
+                <div class="field-header">
+                  <span class="field-label">English Translation</span>
+                  <button class="copy-btn icon-btn" style="width: 26px; height: 26px;" data-target="prayer-en" title="Copier">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+                <p id="prayer-en" class="field-content" style="color: var(--ink-secondary);">O Allah, have mercy upon me through the Quran</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="step-footer-nav">
+          <span></span>
+          <button class="btn-emerald btn-go-step" data-target="2">
+            Étape 2 : Vocabulaire &amp; Sagesse →
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== STEP 2: VOCABULARY & WISDOM ==================== -->
+      <section id="step-panel-2" class="step-panel">
+        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span>📖 Vocabulaire Mot-à-Mot</span>
+          <span style="font-size: 0.8rem; font-weight: 600; color: var(--gold);">(Clique sur une carte pour écouter le mot)</span>
+        </h3>
+        <div id="vocab-grid" class="vocab-grid"></div>
+
+        <!-- Spiritual Reflection Box -->
+        <div class="reflection-box">
+          <div class="reflection-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            <span id="reflection-heading">Méditation Spirituelle &amp; Sagesse</span>
+          </div>
+          <p id="reflection-text" class="reflection-text"></p>
+        </div>
+
+        <div class="step-footer-nav">
+          <button class="drawer-trigger btn-go-step" data-target="1">← Retour à la récitation</button>
+          <button class="btn-emerald btn-go-step" data-target="3">
+            Étape 3 : Tester ma mémoire (Quiz) →
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== STEP 3: INTERACTIVE QUIZ ==================== -->
+      <section id="step-panel-3" class="step-panel">
+        <div class="quiz-card">
+          <div class="eyebrow" style="margin-bottom: 0.75rem;">Puzzle de Mémorisation</div>
+          <h2 class="quiz-question-title">Reconstituez la phrase dans l'ordre exact</h2>
+          <p id="quiz-meaning" class="quiz-target-meaning">"Ô Allah, fais-moi miséricorde par le Coran"</p>
+
+          <!-- Selected slots -->
+          <div id="quiz-slots" class="quiz-slots-area"></div>
+
+          <!-- Pool of words to pick from -->
+          <div id="quiz-pool" class="quiz-pool-area"></div>
+
+          <div id="quiz-feedback" class="quiz-feedback"></div>
+
+          <div style="display: flex; gap: 0.75rem; justify-content: center;">
+            <button id="btn-quiz-reset" class="drawer-trigger">Réinitialiser</button>
+            <button id="btn-quiz-check" class="btn-emerald">Vérifier mon assemblage</button>
+          </div>
+        </div>
+
+        <div class="step-footer-nav">
+          <button class="drawer-trigger btn-go-step" data-target="2">← Revoir le vocabulaire</button>
+          <button class="btn-emerald btn-go-step" data-target="4">
+            Étape 4 : Enregistrement &amp; Validation →
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== STEP 4: RECORD & VALIDATE ==================== -->
+      <section id="step-panel-4" class="step-panel">
+        <div class="recorder-card">
+          <div class="eyebrow" style="margin-bottom: 0.85rem;">🎙️ Studio Vocal Personnel</div>
+          <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem;">Récitez et comparez votre voix</h2>
+          <p style="font-size: 0.9rem; color: var(--ink-secondary); margin-bottom: 1.75rem;">
+            Enregistrez votre propre récitation de cette phrase pour vérifier votre prononciation et votre fluidité.
+          </p>
+
+          <div id="recorder-prompt-ar" class="recorder-arabic-prompt">اللَّهُمَّ ارْحَمْنِي بِالقُرْآنِ</div>
+
+          <div class="recorder-controls">
+            <button id="btn-record-mic" class="btn-mic-record" title="Cliquer pour démarrer / arrêter l'enregistrement">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+            </button>
+            <div id="record-status-label" style="font-size: 0.9rem; font-weight: 700; color: var(--ink-secondary);">
+              Appuyez sur le micro pour réciter
+            </div>
+          </div>
+
+          <div id="user-audio-preview" style="display: none; margin-bottom: 1.5rem;">
+            <audio id="recorded-audio-element" controls style="width: 100%; max-width: 360px;"></audio>
+          </div>
+
+          <div style="border-top: 1px dashed var(--border); padding-top: 2rem; margin-top: 2rem;">
+            <button id="btn-validate-day" class="btn-play-hero" style="font-size: 1.05rem; padding: 0.85rem 2.5rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span id="btn-validate-label">Valider ce jour (+25 XP)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="step-footer-nav">
+          <button class="drawer-trigger btn-go-step" data-target="3">← Refaire le quiz</button>
+          <div style="display: flex; gap: 0.6rem;">
+            <button id="btn-prev-day" class="drawer-trigger">Jour précédent</button>
+            <button id="btn-next-day" class="btn-emerald">Jour suivant →</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 2: STUDIO AUDIO ==================== -->
+  <main id="view-studio" class="view">
+    <div class="focus-shell" style="max-width: 780px;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.4rem;">Studio de Répétition en Boucle</h2>
+        <p style="color: var(--ink-secondary);">Écoutez chaque phrase en continu pour ancrer la mémorisation auditive.</p>
+      </div>
+
+      <div class="mushaf-card" style="text-align: center; padding: 2.5rem 2rem;">
+        <div id="studio-day-tag" class="metric-chip metric-success" style="margin-bottom: 1.25rem;">Jour 1 / 30</div>
+        <div id="studio-ar" class="arabic-text" style="font-size: 2.3rem; margin-bottom: 1.25rem; color: var(--emerald);">اللَّهُمَّ ارْحَمْنِي بِالقُرْآنِ</div>
+        <div id="studio-phon" style="font-size: 1.15rem; font-weight: 700; color: var(--indigo); margin-bottom: 0.65rem;">Allāhumma-rhamnī bil-Qur'ān</div>
+        <div id="studio-tr" style="font-size: 1rem; color: var(--ink-secondary);">Ô Allah, fais-moi miséricorde par le Coran</div>
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2rem;">
+          <button id="studio-btn-prev" class="icon-btn" title="Phrase précédente">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button id="studio-btn-play" class="btn-play-hero" style="padding: 0.75rem 2rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span id="studio-btn-play-label">Écouter</span>
+          </button>
+          <button id="studio-btn-loop" class="drawer-trigger" title="Répétition infinie">
+            <span>Boucle : OFF</span>
+          </button>
+          <button id="studio-btn-next" class="icon-btn" title="Phrase suivante">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 3: FLASHCARDS ==================== -->
+  <main id="view-flashcards" class="view">
+    <div class="flashcards-shell">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.4rem;">Flashcards 3D de Récitation</h2>
+        <p style="color: var(--ink-secondary);">Devinez la suite ou la signification, puis cliquez sur la carte pour révéler.</p>
+      </div>
+
+      <div id="fc-card" class="fc-card">
+        <div class="fc-inner">
+          <div class="fc-front">
+            <span class="field-label" style="margin-bottom: 1.25rem;">Question (Texte Sacré)</span>
+            <div id="fc-front-text" class="fc-arabic">اللَّهُمَّ ارْحَمْنِي بِالقُرْآنِ</div>
+            <p style="font-size: 0.85rem; color: var(--gold); font-weight: 700;">✦ Touchez pour retourner ✦</p>
+          </div>
+          <div class="fc-back">
+            <span class="field-label" style="margin-bottom: 1.25rem;">Phonétique &amp; Traduction</span>
+            <div id="fc-back-phon" style="font-size: 1.2rem; font-weight: 800; color: var(--indigo); margin-bottom: 0.85rem;">Allāhumma-rhamnī bil-Qur'ān</div>
+            <div id="fc-back-fr" style="font-size: 1.05rem; color: var(--ink); margin-bottom: 0.5rem;">Ô Allah, fais-moi miséricorde par le Coran</div>
+            <div id="fc-back-en" style="font-size: 0.9rem; color: var(--ink-muted); font-style: italic;">O Allah, have mercy upon me through the Quran</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 1rem;">
+        <button id="fc-btn-prev" class="drawer-trigger">Carte précédente</button>
+        <button id="fc-btn-next" class="btn-emerald">Carte suivante →</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 4: PLAN 30J ==================== -->
+  <main id="view-plan" class="view">
+    <div class="focus-shell">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.4rem;">Plan d'Étude des 30 Jours</h2>
+        <p style="color: var(--ink-secondary);">Votre progression vers la mémorisation intégrale de l'invocation.</p>
+      </div>
+      <div id="plan-grid" class="plan-grid"></div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 5: TEXTE INTÉGRAL ==================== -->
+  <main id="view-fulltext" class="view">
+    <div class="fulltext-shell">
+      <div class="fulltext-card">
+        <div style="text-align: center; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 2px dashed var(--border-gold);">
+          <h1 style="font-family: var(--arabic-font); font-size: 2.6rem; color: var(--emerald); margin-bottom: 0.5rem;">دُعَاءُ خَتْمِ القُرْآنِ الكَرِيمِ</h1>
+          <p id="fulltext-subtitle" style="font-size: 1rem; color: var(--ink-secondary);">
+            Texte intégral complet — Version Singulier (Prière individuelle)
+          </p>
+          <div style="margin-top: 1.25rem;">
+            <button id="btn-fulltext-playall" class="btn-play-hero">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Écouter toute la Dou'a d'une traite</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="fulltext-rows-container"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

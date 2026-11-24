@@ -1,0 +1,10 @@
+{
+  "name": "doua-khatm-30",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dou'a Khatm al-Qur'an 30 — Maîtriser l'invocation du Coran en 30 jours (Singulier / Pluriel, Arabe, Phonétique, Français & Anglais)",
+  "scripts": {
+    "start": "python3 -m http.server 8091",
+    "deploy": "npx vercel --prod"
+  }
+}
