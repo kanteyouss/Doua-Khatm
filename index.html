@@ -161,7 +161,8 @@
                 Mode Singulier (Pour soi)
               </span>
               <span class="mushaf-ornament-center">✦ دُعَاءُ الخَتْمِ ✦</span>
-              <div style="display: flex; gap: 0.4rem;">
+              <div style="display: flex; gap: 0.4rem; align-items: center;">
+                <button id="btn-toggle-tajweed" class="icon-btn" style="width: auto; padding: 0 0.65rem; font-size: 0.72rem; font-weight: 800;" title="Activer les couleurs de Tajweed (Madd, Ghunnah...)">🎨 Tajweed</button>
                 <button id="btn-blur-ar" class="icon-btn" style="width: 30px; height: 30px; font-size: 0.7rem; font-weight: 700;" title="Masquer l'arabe">ع</button>
                 <button id="btn-blur-phon" class="icon-btn" style="width: 30px; height: 30px; font-size: 0.7rem; font-weight: 700;" title="Masquer phonétique">Ph</button>
                 <button id="btn-blur-tr" class="icon-btn" style="width: 30px; height: 30px; font-size: 0.7rem; font-weight: 700;" title="Masquer traduction">Tr</button>
@@ -171,6 +172,14 @@
             <!-- Big Calligraphic Arabic Text -->
             <div class="arabic-box">
               <p id="prayer-arabic" class="arabic-text">اللَّهُمَّ ارْحَمْنِي بِالقُرْآنِ</p>
+            </div>
+
+            <!-- Tajweed Color Legend Bar -->
+            <div id="tajweed-legend" class="tajweed-legend-bar" style="display: none;">
+              <span class="tj-legend-item"><span class="tj-dot" style="background: #e11d48;"></span> Rouge : Madd (2/4 temps)</span>
+              <span class="tj-legend-item"><span class="tj-dot" style="background: #059669;"></span> Vert : Ghunnah (2 temps)</span>
+              <span class="tj-legend-item"><span class="tj-dot" style="background: #0284c7;"></span> Bleu : Qalqalah (Rebond)</span>
+              <span class="tj-legend-item"><span class="tj-dot" style="background: #d97706;"></span> Or : Tafkhim (Lourd)</span>
             </div>
 
             <!-- Audio Waveform Live Visualizer -->
@@ -183,7 +192,7 @@
               <div class="wave-bar"></div>
             </div>
 
-            <!-- Audio Console -->
+            <!-- Audio Console with Free Custom Repetitions -->
             <div class="audio-player-strip">
               <button id="btn-play-audio" class="btn-play-hero" title="Écouter la récitation">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -194,9 +203,22 @@
                 <option value="0.9" selected>0.9× (Idéal Tajweed)</option>
                 <option value="1.0">1.0× (Normal)</option>
               </select>
-              <button id="btn-repeat-audio" class="drawer-trigger" style="padding: 0.45rem 0.85rem;" title="Répéter 3 fois d'affilée">
-                🔁 3×
-              </button>
+              <div style="display: flex; align-items: center; gap: 0.4rem;">
+                <label for="repeat-count-select" style="font-size: 0.75rem; font-weight: 700; color: var(--ink-secondary);">Répéter :</label>
+                <select id="repeat-count-select" class="speed-select" title="Choisir le nombre de répétitions">
+                  <option value="1">1×</option>
+                  <option value="3">3×</option>
+                  <option value="5">5×</option>
+                  <option value="7" selected>7×</option>
+                  <option value="10">10×</option>
+                  <option value="15">15×</option>
+                  <option value="20">20×</option>
+                  <option value="999">∞ Boucle</option>
+                </select>
+                <button id="btn-repeat-audio" class="btn-emerald" style="padding: 0.45rem 0.85rem;" title="Lancer les répétitions">
+                  <span id="repeat-btn-label">🔁 Répéter</span>
+                </button>
+              </div>
             </div>
 
             <!-- Hands-Free Shadowing Coach Bar -->
@@ -267,6 +289,14 @@
             <span id="reflection-heading">Méditation Spirituelle &amp; Sagesse</span>
           </div>
           <p id="reflection-text" class="reflection-text"></p>
+        </div>
+
+        <!-- Tajweed Rules Breakdown for the Day -->
+        <div class="tajweed-rules-card">
+          <div class="reflection-title" style="color: #e11d48; margin-bottom: 0.75rem;">
+            <span>🎙️ Règles de Tajweed &amp; Prononciation du Jour</span>
+          </div>
+          <div id="tajweed-rules-list"></div>
         </div>
 
         <div class="step-footer-nav">

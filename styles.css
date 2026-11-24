@@ -1125,3 +1125,110 @@ body {
   .arabic-text { font-size: 1.85rem; line-height: 2.1; }
   .mushaf-inner { padding: 1.5rem 1rem; }
 }
+
+/* ==================== TAJWEED COLOR SYSTEM & CARDS ==================== */
+.tj-madd {
+  color: #e11d48 !important;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(225, 29, 72, 0.4);
+}
+.tj-ghunnah {
+  color: #059669 !important;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(5, 150, 105, 0.4);
+}
+.tj-qalqalah {
+  color: #0284c7 !important;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(2, 132, 199, 0.4);
+}
+.tj-tafkhim {
+  color: #d97706 !important;
+  font-weight: 800;
+}
+
+.tajweed-legend-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0.65rem 1rem;
+  background: var(--surface-subtle);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+}
+.tj-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.tj-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.tajweed-rules-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.tajweed-rule-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+.tajweed-rule-row:last-child {
+  border-bottom: none;
+}
+.tj-badge-rule {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--gold-soft);
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+  flex-shrink: 0;
+}
+.tj-target-letters {
+  font-family: var(--arabic-font);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--emerald);
+  direction: rtl;
+}
+.tj-rule-desc {
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  line-height: 1.4;
+}
+.tj-rule-count {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #e11d48;
+}
+
+/* Repeat Counter Pill */
+.repeat-counter-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: #fef2f2;
+  color: #e11d48;
+  border: 1px solid #fecaca;
+  font-size: 0.75rem;
+  font-weight: 800;
+  animation: pulseRecording 1.2s infinite alternate;
+}

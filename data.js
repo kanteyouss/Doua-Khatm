@@ -38,7 +38,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Le Coran est une source infinie de miséricorde divine. En demandant la miséricorde par le Coran, on demande qu'il apaise nos cœurs et éclaire notre vie.",
-      "reflection_en": "The Quran is an infinite spring of divine mercy. Asking for mercy through the Quran brings peace to the heart and guidance to daily life."
+      "reflection_en": "The Quran is an infinite spring of divine mercy. Asking for mercy through the Quran brings peace to the heart and guidance to daily life.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah Complète (غُنَّة مُشَدَّدَة)",
+          "letters": "اللَّهُمَّ (مّ)",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ارْحَمْنِي (ـِي)",
+          "count": "2 temps",
+          "desc": "Allongement naturel de 2 temps sur la kasrah du Nūn suivie du Yā sakin."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "بِالقُرْآنِ (ق)",
+          "count": "Emphatique",
+          "desc": "Le Qāf est une lettre emphatique lourde issue du fond de la gorge."
+        }
+      ]
     },
     {
       "day": 2,
@@ -92,7 +112,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "L'Imam est celui que l'on suit dans chaque pas. Faire du Coran son imam, c'est aligner ses choix, ses pensées et ses actes sur la parole d'Allah.",
-      "reflection_en": "An Imam is one whom we follow steadfastly. Taking the Quran as your guide means aligning every step, thought, and deed with Allah's words."
+      "reflection_en": "An Imam is one whom we follow steadfastly. Taking the Quran as your guide means aligning every step, thought, and deed with Allah's words.",
+      "tajweed_rules": [
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "لِي / لَنَا",
+          "count": "2 temps",
+          "desc": "Allongement naturel de 2 temps sur le Yā (ou Alif)."
+        },
+        {
+          "rule": "Madd 'Iwad (مَدّ عِوَض)",
+          "letters": "إِمَامًا / نُورًا / هُدًى / رَحْمَةً",
+          "count": "2 temps à l'arrêt",
+          "desc": "Remplacement du double fathah par un alif de 2 temps en cas d'arrêt."
+        },
+        {
+          "rule": "Idghām bi-Ghunnah (إِدْغَام بِغُنَّة)",
+          "letters": "إِمَامًا وَنُورًا (ـًا وَ)",
+          "count": "2 temps",
+          "desc": "Fusion du tanwīn dans le Wāw avec nasalisation de 2 temps."
+        }
+      ]
     },
     {
       "day": 3,
@@ -128,7 +168,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "L'oubli est humain. Cette invocation demande à Allah de réactiver dans notre mémoire les versets et les enseignements sacrés.",
-      "reflection_en": "Forgetfulness is part of human nature. This prayer asks Allah to revive the sacred verses and meanings within our hearts."
+      "reflection_en": "Forgetfulness is part of human nature. This prayer asks Allah to revive the sacred verses and meanings within our hearts.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah Complète (غُنَّة)",
+          "letters": "اللَّهُمَّ (مّ)",
+          "count": "2 temps",
+          "desc": "Nasalisation de 2 temps sur le Mīm."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ذَكِّرْنِي (ـِي)",
+          "count": "2 temps",
+          "desc": "Allongement de 2 temps sur la kasrah du Nūn suivie du Yā."
+        },
+        {
+          "rule": "Ikhfā' Haqīqī (إِخْفَاء حَقِيقِي)",
+          "letters": "مِنْهُ (نْـ هـ)",
+          "count": "Izh-hār halqī",
+          "desc": "Le Nūn sakin est prononcé nettement (Izh-hār) car suivi de la lettre de gorge Hā."
+        }
+      ]
     },
     {
       "day": 4,
@@ -164,7 +224,21 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Le Coran recèle des profondeurs inépuisables. Demander la science à Allah ouvre les portes de la méditation profonde (Tadabbur).",
-      "reflection_en": "The Quran possesses inexhaustible depths of wisdom. Seeking knowledge directly from Allah unlocks true contemplation (Tadabbur)."
+      "reflection_en": "The Quran possesses inexhaustible depths of wisdom. Seeking knowledge directly from Allah unlocks true contemplation (Tadabbur).",
+      "tajweed_rules": [
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "وَعَلِّمْنِي (ـِي)",
+          "count": "2 temps",
+          "desc": "Allongement de 2 temps sur la voyelle longue Yā après la kasrah du Nūn."
+        },
+        {
+          "rule": "Tafkhīm / Tarqīq",
+          "letters": "جَهِلْتُ",
+          "count": "Légère",
+          "desc": "Le Lām est prononcé avec finesse (Tarqīq)."
+        }
+      ]
     },
     {
       "day": 5,
@@ -206,7 +280,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "La récitation nocturne (Qiyam al-Layl) apaise l'esprit et fortifie l'âme face aux défis du quotidien.",
-      "reflection_en": "Reciting at night (Qiyam al-Layl) brings tranquility to the soul and anchors strength for daytime endeavors."
+      "reflection_en": "Reciting at night (Qiyam al-Layl) brings tranquility to the soul and anchors strength for daytime endeavors.",
+      "tajweed_rules": [
+        {
+          "rule": "Qalqalah Sughrā (قَلْقَلَة صُغْرَى)",
+          "letters": "وَارْزُقْنِي (قْ)",
+          "count": "Rebond",
+          "desc": "Léger rebond sur le Qāf en état de sukūn au milieu du mot."
+        },
+        {
+          "rule": "Madd Muttasil (مَدّ مُتَّصِل)",
+          "letters": "آنَاءَ",
+          "count": "4 à 5 temps",
+          "desc": "Allongement obligatoire de 4 à 5 temps car la hamzah est dans le même mot que le madd."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "النَّهَارِ / تِلَاوَتَهُ",
+          "count": "2 temps",
+          "desc": "Allongement naturel de 2 temps sur le Alif."
+        }
+      ]
     },
     {
       "day": 6,
@@ -242,7 +336,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Le Prophète ﷺ a dit : « Le Coran est un argument en ta faveur ou contre toi. » Nous implorons Allah qu'il témoigne pour nous le Jour du Jugement.",
-      "reflection_en": "The Prophet ﷺ said: 'The Quran is a proof for you or against you.' We pray that it will intercede on our behalf on the Day of Judgment."
+      "reflection_en": "The Prophet ﷺ said: 'The Quran is a proof for you or against you.' We pray that it will intercede on our behalf on the Day of Judgment.",
+      "tajweed_rules": [
+        {
+          "rule": "Idghām bi-Ghunnah (إِدْغَام)",
+          "letters": "حُجَّةً يَا (ـةً يـ)",
+          "count": "2 temps",
+          "desc": "Fusion du tanwīn dans le Yā avec nasalisation de 2 temps."
+        },
+        {
+          "rule": "Tafkhīm du Rā (تَفْخِيم)",
+          "letters": "رَبَّ",
+          "count": "Emphatique",
+          "desc": "Le Rā avec fathah est prononcé de manière emphatique et pleine."
+        },
+        {
+          "rule": "Madd 'Ārid li-s-Sukūn",
+          "letters": "العَالَمِينَ (ـِينْ)",
+          "count": "2, 4 ou 6 temps",
+          "desc": "Allongement permis de 2, 4 ou 6 temps lors de l'arrêt sur le Nūn final."
+        }
+      ]
     },
     {
       "day": 7,
@@ -278,7 +392,39 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Si la foi d'un croyant est intacte, toutes les autres épreuves deviennent surmontables. Elle est la boussole suprême.",
-      "reflection_en": "When faith is sound and safeguarded, all other earthly tribulations become bearable. It is the ultimate anchor."
+      "reflection_en": "When faith is sound and safeguarded, all other earthly tribulations become bearable. It is the ultimate anchor.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah Complète (غُنَّة)",
+          "letters": "اللَّهُمَّ (مّ)",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Mīm avec Chaddah."
+        },
+        {
+          "rule": "Tafkhīm & Ithbāt (تَفْخِيم)",
+          "letters": "أَصْلِحْ (ص)",
+          "count": "Emphatique",
+          "desc": "Le Sād est une lettre emphatique lourde qui conserve son épaisseur."
+        },
+        {
+          "rule": "Madd Tabī'ī sur le Nūn (مَدّ طَبِيعِي)",
+          "letters": "دِينِي (ـنِي)",
+          "count": "2 temps obligatoires",
+          "desc": "Le Nūn avec kasrah (نِ) suivi du Yā forme un allongement naturel de 2 temps stricts (ne pas le couper trop court)."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "الَّذِي (ـذِي)",
+          "count": "2 temps",
+          "desc": "Allongement de 2 temps sur la lettre Dhāl avec Yā."
+        },
+        {
+          "rule": "Tarqīq du Rā (تَرْقِيق)",
+          "letters": "أَمْرِي (رِ)",
+          "count": "Finesse & 2 temps",
+          "desc": "Le Rā porte une kasrah, il est donc prononcé avec finesse (sans emphase), suivi d'un Madd de 2 temps."
+        }
+      ]
     },
     {
       "day": 8,
@@ -308,7 +454,21 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "L'Islam enseigne l'équilibre : rechercher le bien dans ce monde (travail licite, famille, santé) comme moyen d'atteindre l'agrément divin.",
-      "reflection_en": "Islam emphasizes harmony: seeking goodness and lawful provision in this world as a means to earn Allah's pleasure."
+      "reflection_en": "Islam emphasizes harmony: seeking goodness and lawful provision in this world as a means to earn Allah's pleasure.",
+      "tajweed_rules": [
+        {
+          "rule": "Madd Tabī'ī (مَدّ)",
+          "letters": "دُنْيَايَ / دُنْيَانَا",
+          "count": "2 temps",
+          "desc": "Allongement naturel sur les Alifs."
+        },
+        {
+          "rule": "Izh-hār Mutlaq (إِظْهَار مُطْلَق)",
+          "letters": "دُنْيَا (نْـ يـ)",
+          "count": "Sans ghunnah",
+          "desc": "Exception coranique : le Nūn sakin suivi du Yā dans un même mot se prononce clairement sans fusion."
+        }
+      ]
     },
     {
       "day": 9,
@@ -338,7 +498,21 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "L'au-delà est la demeure véritable et éternelle. Demander sa droiture, c'est prier pour le pardon, les bonnes actions et le Paradis.",
-      "reflection_en": "The Hereafter is the true, everlasting abode. Praying for its righteousness means seeking forgiveness, purity, and Paradise."
+      "reflection_en": "The Hereafter is the true, everlasting abode. Praying for its righteousness means seeking forgiveness, purity, and Paradise.",
+      "tajweed_rules": [
+        {
+          "rule": "Madd Badal (مَدّ بَدَل)",
+          "letters": "آخِرَتِي (آ)",
+          "count": "2 temps",
+          "desc": "La hamzah précédant le madd s'allonge de 2 temps."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ)",
+          "letters": "مَعَادِي",
+          "count": "2 temps + 2 temps",
+          "desc": "Double allongement de 2 temps sur le Alif et sur le Yā."
+        }
+      ]
     },
     {
       "day": 10,
@@ -374,7 +548,21 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Chaque jour supplémentaire accordé sur cette Terre est une opportunité en or d'adorer Allah, de faire le bien et d'aider les autres.",
-      "reflection_en": "Every additional sunrise on Earth is a golden gift to draw closer to Allah, perform good deeds, and serve humanity."
+      "reflection_en": "Every additional sunrise on Earth is a golden gift to draw closer to Allah, perform good deeds, and serve humanity.",
+      "tajweed_rules": [
+        {
+          "rule": "Idghām bi-Ghayri Ghunnah",
+          "letters": "زِيَادَةً لِي (ـةً لِ)",
+          "count": "Fusion nette sans nasalité",
+          "desc": "Le tanwīn se fond entièrement dans le Lām sans traîner de nez."
+        },
+        {
+          "rule": "Madd Tabī'ī",
+          "letters": "الحَيَاةَ / لِي",
+          "count": "2 temps",
+          "desc": "Allongement de 2 temps sur le Yā et le Alif."
+        }
+      ]
     },
     {
       "day": 11,
@@ -410,7 +598,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Pour le croyant vertueux, la mort marque la fin des tourments terrestres et le début de la paix et de la félicité auprès de son Créateur.",
-      "reflection_en": "For the believer, transition from this world is liberation from trials into the embrace of divine peace and light."
+      "reflection_en": "For the believer, transition from this world is liberation from trials into the embrace of divine peace and light.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 12,
@@ -446,7 +654,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Ce qui compte le plus, c'est la façon dont on conclut son parcours. On demande à Allah que nos derniers jours soient les plus dévoués.",
-      "reflection_en": "What matters most is how we finish the race of life. We ask that our final chapters be filled with the deepest devotion."
+      "reflection_en": "What matters most is how we finish the race of life. We ask that our final chapters be filled with the deepest devotion.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 13,
@@ -476,7 +704,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "« Les actes ne valent que par leur fin » enseignait le Messager d'Allah ﷺ. Mourir en état de prière ou de dhikr est une grâce suprême.",
-      "reflection_en": "«Actions are judged by their seals» taught the Prophet ﷺ. Returning to Allah in a state of worship is the highest blessing."
+      "reflection_en": "«Actions are judged by their seals» taught the Prophet ﷺ. Returning to Allah in a state of worship is the highest blessing.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 14,
@@ -512,7 +760,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "La rencontre avec Allah est le but suprême de chaque croyant. Que ce jour soit un jour de joie, d'agrément et d'amour.",
-      "reflection_en": "Meeting the Divine Creator is the pinnacle longing of the faithful. We pray it will be a day of serene joy and welcome."
+      "reflection_en": "Meeting the Divine Creator is the pinnacle longing of the faithful. We pray it will be a day of serene joy and welcome.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 15,
@@ -542,7 +810,21 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "La vie 'haniyyah' est exempte de tourments intérieurs et de culpabilité ; la mort 'sawiyyah' est vécue avec dignité sans humiliation.",
-      "reflection_en": "A 'haniyyah' life is free from spiritual agony, while a 'sawiyyah' death is marked with grace, dignity, and faith."
+      "reflection_en": "A 'haniyyah' life is free from spiritual agony, while a 'sawiyyah' death is marked with grace, dignity, and faith.",
+      "tajweed_rules": [
+        {
+          "rule": "Izh-hār Halqī (إِظْهَار)",
+          "letters": "عِيشَةً هَنِيَّةً (ـةً هـ)",
+          "count": "Nette sans ghunnah",
+          "desc": "Le tanwīn est prononcé nettement car suivi de la lettre Hā (lettre de gorge)."
+        },
+        {
+          "rule": "Ikhfā' Haqīqī (إِخْفَاء)",
+          "letters": "وَمِيتَةً سَوِيَّةً (ـةً سـ)",
+          "count": "2 temps",
+          "desc": "Dissimulation du tanwīn avec nasalisation de 2 temps devant la lettre Sīn."
+        }
+      ]
     },
     {
       "day": 16,
@@ -578,7 +860,21 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Nous demandons à Allah de couvrir nos manquements sous le voile de Sa bonté (Satr) afin de ne jamais être exposés à la honte.",
-      "reflection_en": "We ask the Lord of the Throne to cover our flaws with His protective veil (Satr) so we may stand with honor."
+      "reflection_en": "We ask the Lord of the Throne to cover our flaws with His protective veil (Satr) so we may stand with honor.",
+      "tajweed_rules": [
+        {
+          "rule": "Izh-hār Halqī (إِظْهَار)",
+          "letters": "وَمَرَدًّا غَيْرَ (ـًا غـ)",
+          "count": "Prononciation claire",
+          "desc": "Le tanwīn est clair devant la lettre Ghayn."
+        },
+        {
+          "rule": "Idghām bi-Ghunnah (إِدْغَام)",
+          "letters": "مُخْزٍ وَلَا (ـٍ وَ)",
+          "count": "2 temps",
+          "desc": "Fusion du tanwīn dans le Wāw avec nasalisation de 2 temps."
+        }
+      ]
     },
     {
       "day": 17,
@@ -614,7 +910,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Le succès véritable englobe le bien dans ce monde et le triomphe au Paradis. Cette formule résume toutes les aspirations nobles.",
-      "reflection_en": "Real success is multifaceted: inner clarity in this world and glorious safety in the eternal realm."
+      "reflection_en": "Real success is multifaceted: inner clarity in this world and glorious safety in the eternal realm.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 18,
@@ -650,7 +966,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "La trilogie du croyant : apprendre la vérité, la mettre en pratique avec sincérité, et espérer la récompense d'Allah.",
-      "reflection_en": "The believers' trilogy: acquiring useful knowledge, practicing it with sincerity, and trusting Allah's recompense."
+      "reflection_en": "The believers' trilogy: acquiring useful knowledge, practicing it with sincerity, and trusting Allah's recompense.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 19,
@@ -692,7 +1028,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "La balance alourdie par les bonnes actions est le gage du salut éternel (Al-Mawāzīn).",
-      "reflection_en": "The weighing of deeds (Al-Mawāzīn) determines the eternal outcome; we ask that our good deeds outweigh our faults."
+      "reflection_en": "The weighing of deeds (Al-Mawāzīn) determines the eternal outcome; we ask that our good deeds outweigh our faults.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 20,
@@ -728,7 +1084,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Ne te contente jamais du minimum dans tes invocations : le Prophète ﷺ nous a enseigné de demander le Firdaws, le plus haut niveau du Paradis.",
-      "reflection_en": "Never hesitate to aim high in du'a: the Prophet ﷺ instructed us to ask for Al-Firdaws, the highest pinnacle of Paradise."
+      "reflection_en": "Never hesitate to aim high in du'a: the Prophet ﷺ instructed us to ask for Al-Firdaws, the highest pinnacle of Paradise.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 21,
@@ -758,7 +1134,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Nous demandons à Allah de nous guider vers les paroles et les actions concrètes qui rendent Sa miséricorde inévitable pour nous.",
-      "reflection_en": "We plead with Allah to inspire us toward the sincere deeds that unconditionally unlock His boundless mercy."
+      "reflection_en": "We plead with Allah to inspire us toward the sincere deeds that unconditionally unlock His boundless mercy.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 22,
@@ -800,7 +1196,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Cette formule magistrale embrasse tout ce qu'un être humain peut désirer : s'éloigner du mal, embrasser le bien, goûter au Paradis.",
-      "reflection_en": "This comprehensive phrase covers every desire: fleeing from harm, reaping virtues, and dwelling in eternal gardens."
+      "reflection_en": "This comprehensive phrase covers every desire: fleeing from harm, reaping virtues, and dwelling in eternal gardens.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 23,
@@ -836,7 +1252,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Que de projets semblent prometteurs mais finissent mal ! Nous remettons le dénouement de chaque épreuve entre les mains d'Allah.",
-      "reflection_en": "Many pursuits appear tempting but turn bitter. We entrust the outcome of each life endeavor to Allah's wise decree."
+      "reflection_en": "Many pursuits appear tempting but turn bitter. We entrust the outcome of each life endeavor to Allah's wise decree.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 24,
@@ -872,7 +1308,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "La crainte d'Allah ('Khashya') n'est pas une peur paralysante, mais un respect profond et un amour qui retient le croyant de blesser son âme.",
-      "reflection_en": "'Khashya' is not terrifying panic, but awe, love, and sacred respect that gently holds the soul back from falling into transgression."
+      "reflection_en": "'Khashya' is not terrifying panic, but awe, love, and sacred respect that gently holds the soul back from falling into transgression.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 25,
@@ -908,7 +1364,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "L'obéissance aux préceptes divins n'est pas un fardeau, c'est l'échelle de lumière qui élève le serviteur vers la béatitude éternelle.",
-      "reflection_en": "Obeying divine guidance is never a burden; it is the luminous stairway that elevates the sincere heart into eternal joy."
+      "reflection_en": "Obeying divine guidance is never a burden; it is the luminous stairway that elevates the sincere heart into eternal joy.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 26,
@@ -944,7 +1420,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Lorsque la certitude (Yaqîn) habite le cœur, les tempêtes de la vie ne peuvent plus le briser, car il sait que tout est entre les mains d'Allah.",
-      "reflection_en": "When divine certitude (Yaqin) fills the core, hardships transform into opportunities for patience, elevation, and strength."
+      "reflection_en": "When divine certitude (Yaqin) fills the core, hardships transform into opportunities for patience, elevation, and strength.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 27,
@@ -986,7 +1482,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Demander que la vue et l'ouïe 'héritent de nous' signifie rester lucide, autonome et capable d'adorer Allah jusqu'au tout dernier jour.",
-      "reflection_en": "Praying that physical faculties 'inherit from us' means maintaining clarity of mind and body until our very last breath."
+      "reflection_en": "Praying that physical faculties 'inherit from us' means maintaining clarity of mind and body until our very last breath.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 28,
@@ -1022,7 +1538,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "L'Islam rejette l'injustice aveugle et la vengeance disproportionnée : nous demandons l'équité divine parfaite et la protection contre les oppresseurs.",
-      "reflection_en": "Islam repudiates unchecked retribution: this prayer asks for pure divine justice and safety from malice and oppression."
+      "reflection_en": "Islam repudiates unchecked retribution: this prayer asks for pure divine justice and safety from malice and oppression.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 29,
@@ -1064,7 +1600,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "La pire des épreuves n'est pas financière ou physique, c'est de perdre la foi ou d'être esclave de l'illusion terrestre.",
-      "reflection_en": "The gravest calamity is not losing material fortune, but losing religious moral compass or becoming imprisoned by worldly illusions."
+      "reflection_en": "The gravest calamity is not losing material fortune, but losing religious moral compass or becoming imprisoned by worldly illusions.",
+      "tajweed_rules": [
+        {
+          "rule": "Ghunnah (غُنَّة)",
+          "letters": "اللَّهُمَّ / إِنِّي / إِنَّا",
+          "count": "2 temps",
+          "desc": "Nasalisation obligatoire de 2 temps sur le Nūn et Mīm avec Chaddah."
+        },
+        {
+          "rule": "Madd Tabī'ī (مَدّ طَبِيعِي)",
+          "letters": "ـِي / ـَا / ـُو",
+          "count": "2 temps",
+          "desc": "Respect strict de l'allongement de 2 temps sur les voyelles longues sans précipitation."
+        },
+        {
+          "rule": "Tafkhīm (تَفْخِيم)",
+          "letters": "خ ص ض غ ط ق ظ",
+          "count": "Lettres lourdes",
+          "desc": "Prononciation pleine et emphatique des lettres du groupe 'Khussa Daghtin Qiz'."
+        }
+      ]
     },
     {
       "day": 30,
@@ -1118,7 +1674,27 @@ window.DOUA_DATA = {
         }
       ],
       "reflection_fr": "Le couronnement sublime de la récitation : l'absolution intégrale, la délivrance des dettes et peines, l'invocation coranique maîtresse et la salutation bénie sur le Bien-Aimé ﷺ.",
-      "reflection_en": "The grand culmination: total absolution of sins, relief from anxieties, debt clearance, the paramount Quranic prayer, and exalted salutations upon the Prophet ﷺ."
+      "reflection_en": "The grand culmination: total absolution of sins, relief from anxieties, debt clearance, the paramount Quranic prayer, and exalted salutations upon the Prophet ﷺ.",
+      "tajweed_rules": [
+        {
+          "rule": "Izh-hār Halqī (إِظْهَار)",
+          "letters": "ذَنْبًا إِلَّا / هَمًّا إِلَّا / دَيْنًا إِلَّا",
+          "count": "Nette",
+          "desc": "Le tanwīn est prononcé clairement devant la Hamzah de 'illā'."
+        },
+        {
+          "rule": "Iqlāb (إِقْلَاب)",
+          "letters": "ذَنْبًا (نْـ بـ)",
+          "count": "2 temps",
+          "desc": "Le Nūn sakin suivi du Bā se transforme en Mīm avec ghunnah de 2 temps."
+        },
+        {
+          "rule": "Madd Muttasil (مَدّ مُتَّصِل)",
+          "letters": "حَوَائِجِ",
+          "count": "4 à 5 temps",
+          "desc": "Allongement obligatoire de 4 à 5 temps sur le Alif suivi d'une Hamzah dans le même mot."
+        }
+      ]
     }
   ]
 };

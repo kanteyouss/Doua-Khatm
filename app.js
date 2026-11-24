@@ -28,6 +28,10 @@
   let fulltextAudioIndex = -1;
   let fulltextPlaying = false;
   let shadowingActive = false;
+  let tajweedModeActive = false;
+  let isRepeating = false;
+  let repeatTargetCount = 3;
+  let repeatCurrentCount = 0;
 
   // MediaRecorder variables
   let mediaRecorder = null;
@@ -260,10 +264,15 @@
     isPlayingAudio = false;
     fulltextPlaying = false;
     shadowingActive = false;
+    isRepeating = false;
     waveformBars.classList.remove("playing");
     updatePlayButtonState(false);
     const hfBtn = document.getElementById("btn-handsfree-toggle");
     if (hfBtn) hfBtn.textContent = "▶ Lancer";
+    const repLabel = document.getElementById("repeat-btn-label");
+    if (repLabel) repLabel.textContent = "🔁 Répéter";
+    const repBtn = document.getElementById("btn-repeat-audio");
+    if (repBtn) repBtn.classList.remove("playing");
   }
 
   function playArabicDayAudio(dayNum, isSing, rate = 0.9, onEnd = null) {
@@ -393,7 +402,15 @@
 
     // Main Arabic & Translations
     const activeArabic = isSing ? cur.ar_sing : cur.ar_plur;
-    prayerArabic.textContent = activeArabic;
+    if (tajweedModeActive) {
+      prayerArabic.innerHTML = colorizeTajweed(activeArabic);
+      const tajweedLegend = document.getElementById("tajweed-legend");
+      if (tajweedLegend) tajweedLegend.style.display = "flex";
+    } else {
+      prayerArabic.textContent = activeArabic;
+      const tajweedLegend = document.getElementById("tajweed-legend");
+      if (tajweedLegend) tajweedLegend.style.display = "none";
+    }
     prayerPhonetic.textContent = isSing ? cur.phon_sing : cur.phon_plur;
     prayerFr.textContent = isSing ? cur.fr_sing : cur.fr_plur;
     prayerEn.textContent = isSing ? cur.en_sing : cur.en_plur;
@@ -426,6 +443,27 @@
     } else {
       reflectionHeading.textContent = "Méditation Spirituelle & Sagesse";
       reflectionText.textContent = cur.reflection_fr;
+    }
+
+    // Tajweed Rules List (Step 2)
+    const tajweedList = document.getElementById("tajweed-rules-list");
+    if (tajweedList) {
+      tajweedList.innerHTML = "";
+      (cur.tajweed_rules || []).forEach(r => {
+        const row = document.createElement("div");
+        row.className = "tajweed-rule-row";
+        row.innerHTML = `
+          <div class="tj-badge-rule">${r.rule}</div>
+          <div style="flex: 1;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+              <span class="tj-target-letters">${r.letters}</span>
+              <span class="tj-rule-count">${r.count}</span>
+            </div>
+            <p class="tj-rule-desc">${r.desc}</p>
+          </div>
+        `;
+        tajweedList.appendChild(row);
+      });
     }
 
     // Prev / Next button state
@@ -471,24 +509,74 @@
     }
   });
 
+  // Tajweed Text Colorizer
+  function colorizeTajweed(raw) {
+    let html = raw;
+    // 1. Ghunnah on Mim Chaddah & Nun Chaddah (2 temps)
+    html = html.replace(/(مّ|نّ)/g, '<span class="tj-ghunnah" title="Ghunnah 2 temps">$1</span>');
+    // 2. Long Madd Muttasil
+    html = html.replace(/(آنَاءَ)/g, '<span class="tj-madd" title="Madd Muttasil 4-5 temps">$1</span>');
+    // 3. Madd Tabī'ī (2 temps) specifically on kasrah + Ya (like نِي / لِي / دِينِي / أَمْرِي)
+    html = html.replace(/(نِي|لِي|رِي|شِي|دِي|فِيهِ|نِيهِ)/g, '<span class="tj-madd" title="Madd Tabī\'ī 2 temps">$1</span>');
+    html = html.replace(/(نَا|هَا|يَا|مَا|تَنَا|نَانَا)/g, '<span class="tj-madd" title="Madd Tabī\'ī 2 temps">$1</span>');
+    // 4. Tafkhim letters (letters of heavy emphasis)
+    html = html.replace(/([صضطظخغق][َُِ]?)/g, '<span class="tj-tafkhim" title="Tafkhīm">$1</span>');
+    // 5. Qalqalah on Sukūn (قطب جد)
+    html = html.replace(/([قطبجد]ْ)/g, '<span class="tj-qalqalah" title="Qalqalah">$1</span>');
+    return html;
+  }
+
+  // Tajweed Toggle Button
+  const btnToggleTajweed = document.getElementById("btn-toggle-tajweed");
+  if (btnToggleTajweed) {
+    btnToggleTajweed.addEventListener("click", () => {
+      tajweedModeActive = !tajweedModeActive;
+      btnToggleTajweed.classList.toggle("active", tajweedModeActive);
+      renderCurrentDay();
+      playChime(true);
+    });
+  }
+
+  // Customizable Repetitions
+  const repeatCountSelect = document.getElementById("repeat-count-select");
+  const repeatBtnLabel = document.getElementById("repeat-btn-label");
+
   btnRepeatAudio.addEventListener("click", () => {
+    if (isRepeating) {
+      stopAudio();
+      return;
+    }
+
     stopAudio();
+    isRepeating = true;
+    repeatTargetCount = parseInt(repeatCountSelect.value) || 7;
+    repeatCurrentCount = 0;
+    btnRepeatAudio.classList.add("playing");
+
     const isSing = state.grammMode === "sing";
     const rate = parseFloat(speedSelect.value) || 0.9;
-    let count = 0;
 
-    function loopOnce() {
-      if (count >= 3) {
-        updatePlayButtonState(false);
+    function loopStep() {
+      if (!isRepeating || repeatCurrentCount >= repeatTargetCount) {
+        stopAudio();
         return;
       }
-      count++;
+      repeatCurrentCount++;
+      if (repeatBtnLabel) {
+        repeatBtnLabel.textContent = repeatTargetCount > 100 ? `∞ (${repeatCurrentCount})` : `${repeatCurrentCount} / ${repeatTargetCount}`;
+      }
       updatePlayButtonState(true);
+
       playArabicDayAudio(state.currentDay, isSing, rate, () => {
-        setTimeout(loopOnce, 600);
+        if (isRepeating && repeatCurrentCount < repeatTargetCount) {
+          setTimeout(loopStep, 650);
+        } else {
+          stopAudio();
+        }
       });
     }
-    loopOnce();
+
+    loopStep();
   });
 
   // Hands-free Shadowing Coach
